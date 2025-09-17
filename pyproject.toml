@@ -3,10 +3,12 @@ requires = ["setuptools>=80.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "your-project-name"
+name = "mortgage-tools"
 version = "0.1.0"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "streamlit>=1.49.1",
+]
 
 [dependency-groups]
 dev = ["pytest", "pytest-cov", "pytest-mock", "ruff"]
@@ -16,10 +18,10 @@ package-dir = { "" = "src" }
 
 [tool.setuptools.packages.find]
 where = ["src"]
-include = ["your_package_name*"]
+include = ["mortgage_tools*"]
 
 [tool.setuptools.package-data]
-"your_package_name" = ["py.typed"]
+"mortgage_tools" = ["py.typed"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -29,7 +31,7 @@ addopts = """
 
 [tool.coverage.run]
 branch = true
-source = ["src/your_package_name"]
+source = ["src/mortgage_tools"]
 omit = ["tests/*"]
 
 [tool.coverage.report]
@@ -56,7 +58,7 @@ unfixable = [
 ]
 
 [tool.ruff.lint.isort]
-known-first-party = ["your_package_name"]
+known-first-party = ["mortgage_tools"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
